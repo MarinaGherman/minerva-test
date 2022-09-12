@@ -12,8 +12,12 @@ import randomRGBAColor from '../../utils/random-rgba-color';
 
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 
+type ObjectType = {
+  [key:string] : number[]
+}
+
 type Props = {
-  sourceData: any;
+  sourceData: ObjectType;
   labels: string[];
 }
 

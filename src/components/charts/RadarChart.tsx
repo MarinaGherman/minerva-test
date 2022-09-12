@@ -20,9 +20,12 @@ ChartJS.register(
   Tooltip,
   Legend
 );
+type ObjectType = {
+  [key:string] : number[]
+}
 
 type Props = {
-  sourceData: any;
+  sourceData: ObjectType;
   labels: string[];
 }
 

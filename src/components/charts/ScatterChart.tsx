@@ -13,8 +13,12 @@ import randomRGBAColor from '../../utils/random-rgba-color';
 
 ChartJS.register(LinearScale, PointElement, LineElement, Tooltip, Legend);
 
+type ObjectType = {
+  [key:string] : number[]
+}
+
 type Props = {
-  sourceData: any;
+  sourceData: ObjectType;
 }
 
 const ScatterChart: React.FC<Props> = ({ sourceData }) => {
@@ -25,7 +29,7 @@ const ScatterChart: React.FC<Props> = ({ sourceData }) => {
     return ({
       label: `${key} N_PAZ`,
       backgroundColor,
-      data: sourceData[key].map((value: string, index: number) => ({ x: index + 1, y: value })),
+      data: sourceData[key].map((value: number, index: number) => ({ x: index + 1, y: value })),
     })
   });
 

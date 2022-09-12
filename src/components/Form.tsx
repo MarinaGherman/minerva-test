@@ -1,4 +1,4 @@
-import { Box, Button, LinearProgress } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';

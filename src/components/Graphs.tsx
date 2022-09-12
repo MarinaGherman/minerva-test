@@ -39,6 +39,10 @@ ChartJS.register(
   BarController
 );
 
+type stateType = {
+  [key: string] : number[];
+}
+
 
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -50,8 +54,7 @@ const Graphs = () => {
 
   const datasetData = useMemo(() => {
     // Create initial data
-    const state: any = {};
-
+    const state: stateType = {};
     items.forEach((item) => {
       if (item.DATA) {
         const year = moment(item.DATA).get('year');

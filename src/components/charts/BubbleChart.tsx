@@ -12,8 +12,12 @@ import randomRGBAColor from '../../utils/random-rgba-color';
 
 ChartJS.register(LinearScale, PointElement, Tooltip, Legend);
 
+type ObjectType = {
+  [key:string] : number[]
+}
+
 type Props = {
-  sourceData: any;
+  sourceData: ObjectType;
 }
 
 const BubbleChart: React.FC<Props> = ({ sourceData }) => {
@@ -27,7 +31,7 @@ const BubbleChart: React.FC<Props> = ({ sourceData }) => {
     return ({
       label: `${key} N_PAZ`,
       backgroundColor,
-      data: sourceData[key].map((value: string, index: number) => ({ x: index + 1, y: value, r: ((max - min) + +value ) / 400 })),
+      data: sourceData[key].map((value: number, index: number) => ({ x: index + 1, y: value, r: ((max - min) + +value ) / 400 })),
     })
   });
 

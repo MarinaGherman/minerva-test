@@ -3,8 +3,12 @@ import { Chart } from 'react-chartjs-2';
 
 import randomRGBAColor from '../../utils/random-rgba-color';
 
+type ObjectType = {
+  [key:string] : number[]
+}
+
 type Props = {
-  sourceData: any;
+  sourceData: ObjectType;
   labels: string[];
 }
 
