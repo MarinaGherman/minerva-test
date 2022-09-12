@@ -20,11 +20,7 @@ const initialState: State = {
 export const dataSlice = createSlice({
   name: 'data',
   initialState,
-  reducers: {
-    setAppLoader: (state, { payload }) => {
-      state.loading = payload
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(parseData.pending, (state) => {
       state.loading = true;
