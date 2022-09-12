@@ -1,11 +1,13 @@
-import { Button } from '@mui/material';
+import { Box, Button, LinearProgress } from '@mui/material';
 import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { AppDispatch } from '../store';
-import { selectDataIsParsed } from '../store/slice/data';
+import { isLoading, selectDataIsParsed } from '../store/slice/data';
 import parseData from '../store/slice/data/actions/parse-data';
+import Loader from './common/Loader/Loader';
+import s from './styles/Forms.module.scss'
 
 interface Event<T = EventTarget> {
   target: T;
@@ -16,6 +18,7 @@ const Form = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   const isParsedData = useSelector(selectDataIsParsed);
+  const loading = useSelector(isLoading);
 
   const uploadInputRef = useRef<HTMLInputElement>(null);
 
@@ -33,20 +36,25 @@ const Form = () => {
   }, [navigate, isParsedData])
 
   return (
-      <div>
-        <input
+      <div className={s.formContainer}>
+        { loading ? <Loader/> : ( <div>
+          <input
             ref={uploadInputRef}
             type="file"
             accept="text/csv"
             style={{ display: 'none' }}
             onChange={onChange}
           />
-          <Button
-            onClick={() => uploadInputRef.current && uploadInputRef.current.click()}
-            variant="contained"
-          >
-            Upload
-          </Button>
+          <Box >
+            <h1>Upload CSV file</h1>
+            <Button
+              onClick={() => uploadInputRef.current && uploadInputRef.current.click()}
+              variant="contained"
+            >
+              Upload
+            </Button>
+          </Box>
+        </div>) }
       </div>
   )
 };

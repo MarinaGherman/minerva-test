@@ -8,7 +8,7 @@ export type Result = {
 const parseFile = async (file: File): Promise<Result[]> => new Promise((resolve, reject) => {
     Papa.parse<Result>(file, {
       header: true,
-      complete:(results) => resolve(results.data),
+      complete:(results) => setTimeout(() => resolve(results.data), 1000),
       error: (error: Error) => reject(error)
     });
 });

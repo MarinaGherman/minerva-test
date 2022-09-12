@@ -20,11 +20,12 @@ import { selectData, selectDataIsParsed } from '../store/slice/data';
 import BarChart from './charts/BarChart';
 import BubbleChart from './charts/BubbleChart';
 import DoughnutChart from './charts/DoughnutChart';
+import PieChart from './charts/PieChart';
 import PlotlyChart from './charts/PlotlyChart';
 import PolarAreaChart from './charts/PolarAreaChart';
 import RadarChart from './charts/RadarChart';
 import ScatterChart from './charts/ScatterChart';
-import s from './Main.module.scss';
+import s from './styles/Main.module.scss';
 
 ChartJS.register(
   LinearScale,
@@ -77,27 +78,55 @@ const Graphs = () => {
 
   return (
     <Box className={s.mainContainer}>
+      <h1>Charts</h1>
       <Grid container>
         <Grid xs={12}>
-          <PlotlyChart items={items} />
+          <Box className={s.plotChart}>
+            <h2>Plot Chart</h2>
+            <PlotlyChart items={items} />
+          </Box>
         </Grid>
         <Grid xs={12}>
-          <BarChart labels={labels} sourceData={datasetData}/>
+          <Box className={s.barChart}>
+            <h2>Bar Chart</h2>
+            <BarChart labels={labels} sourceData={datasetData}/>
+          </Box>
         </Grid>
         <Grid xs={6}>
-          <RadarChart labels={labels} sourceData={datasetData}/>
+          <Box className={s.radarChart}>
+            <h2>Radar Chart</h2>
+            <RadarChart labels={labels} sourceData={datasetData}/>
+          </Box>
         </Grid>
         <Grid xs={6}>
-          <PolarAreaChart labels={labels} sourceData={datasetData}/>
+          <Box className={s.polarChart}>
+            <h2>Polar Chart</h2>
+            <PolarAreaChart labels={labels} sourceData={datasetData}/>
+          </Box>
         </Grid>
         <Grid xs={6}>
-          <DoughnutChart labels={labels} sourceData={datasetData}/>
+          <Box className={s.doughnutChart}>
+            <h2>Doughnut Charts</h2>
+            <DoughnutChart labels={labels} sourceData={datasetData}/>
+          </Box>
+        </Grid>
+        <Grid xs={6}>
+          <Box className={s.pieChart}>
+            <h2> Pie Chart</h2>
+            <PieChart labels={labels} sourceData={datasetData}/>
+          </Box>
         </Grid>
         <Grid xs={12}>
-          <ScatterChart sourceData={datasetData}/>
+          <Box className={s.scatterChart}>
+            <h2>Scatter Chart</h2>
+            <ScatterChart sourceData={datasetData}/>
+          </Box>
         </Grid>
         <Grid xs={12}>
-          <BubbleChart sourceData={datasetData}/>
+          <Box className={s.bubbleChart}>
+            <h2>Bubble Chart</h2>
+            <BubbleChart sourceData={datasetData}/>
+          </Box>
         </Grid>
       </Grid>
     </Box>

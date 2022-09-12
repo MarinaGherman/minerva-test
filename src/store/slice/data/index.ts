@@ -20,7 +20,11 @@ const initialState: State = {
 export const dataSlice = createSlice({
   name: 'data',
   initialState,
-  reducers: {},
+  reducers: {
+    setAppLoader: (state, { payload }) => {
+      state.loading = payload
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(parseData.pending, (state) => {
       state.loading = true;
@@ -39,7 +43,9 @@ export const dataSlice = createSlice({
   }
 });
 
+
 export const selectData = (state: RootState) => state.data.items;
+export const isLoading = (state: RootState) => state.data.loading;
 export const selectDataIsParsed = (state: RootState) => state.data.isParsed;
 
 export default dataSlice.reducer;

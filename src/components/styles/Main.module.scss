@@ -1,0 +1,44 @@
+.mainContainer {
+    h1 {
+          text-align: center;
+          padding-top: 20px;
+    }
+    h2 {
+        margin-left: 15px;
+        margin-top: 0;
+    }
+    .plotChart {
+        border-top: 15px solid #EDEFF5;
+        border-bottom: 25px solid #EDEFF5;
+    }
+
+    .barChart {
+        padding: 15px;
+        border-bottom: 25px solid #EDEFF5;
+    }
+    .radarChart {
+        padding: 15px 15px 40px 15px;
+        border-right: 25px solid #EDEFF5;
+        border-bottom: 25px solid #EDEFF5;
+    }
+    .polarChart {
+        padding: 15px;
+        border-bottom: 25px solid #EDEFF5;
+    }
+    .doughnutChart {
+        border-right: 25px solid #EDEFF5;
+        padding: 15px 15px 40px 15px;
+    }
+    .pieChart {
+        padding: 15px;
+    }
+    .scatterChart {
+        border-top: 25px solid #EDEFF5;
+        border-bottom: 25px solid #EDEFF5;
+        padding: 15px;
+    }
+    .bubbleChart {
+        border-bottom: 25px solid #EDEFF5;
+        padding: 15px;
+    }
+}
